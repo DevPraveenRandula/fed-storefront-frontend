@@ -1,8 +1,11 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
     try {
-        const connectionString ="mongodb+srv://PraveenRandula:praveenDB2005@cluster0.trcs9.mongodb.net/dev?retryWrites=true&w=majority&appName=Cluster0";
+        const connectionString = process.env.MONGODB_URI;
         if (!connectionString) {
             throw new Error("Please add the connection string")
         }
